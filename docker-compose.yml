@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tripplanner
+    ports:
+      - "5432:5432"
+
+  trip-service:
+    build: ./trip-service
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db
+
+  ai-service:
+    build: ./ai-service
+    ports:
+      - "8002:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8003:8000"

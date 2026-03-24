@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>TriPlanner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>🌍 TriPlanner</header>
+
+<div class="top-bar">
+  <div class="plan-info">
+    <span id="planCode"></span>
+    <button onclick="copyCode()">📋</button>
+  </div>
+
+  <button class="exit-btn" onclick="leavePlan()">wyjście</button>
+</div>
+
+<div class="container">
+
+<div class="left">
+
+<div class="card">
+<h3>📝 Lista rzeczy</h3>
+<ul id="todoList"></ul>
+<input id="todoInput">
+<button onclick="addTodo()">Dodaj</button>
+</div>
+
+<div class="card">
+<h3>💸 Budżet</h3>
+
+<div class="budget-inputs">
+  <input id="expenseName" placeholder="Np. paliwo">
+  <input id="expenseInput" placeholder="Kwota">
+</div>
+
+<button onclick="addExpense()">Dodaj</button>
+
+<ul id="expenseList"></ul>
+
+<p id="total">Suma: 0 zł</p>
+</div>
+
+</div>
+
+<div class="right">
+<div class="card">
+<h3>📒 Notatki</h3>
+<textarea id="notes" class="notes-box"></textarea>
+</div>
+</div>
+
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

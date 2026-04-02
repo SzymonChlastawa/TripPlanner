@@ -1,0 +1,220 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #eaf4ff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  height: 80px;
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 0 3px 10px rgba(0,0,0,1);
+
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1920');
+
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch;
+}
+
+.left, .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f1f6fb;
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#todoList, #expenseList {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.budget-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.budget-inputs input {
+  flex: 1;
+}
+
+.notes-box {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: auto;
+
+  padding: 20px 20px 20px 50px;
+
+  background:
+    linear-gradient(to right, #ff6b6b 2px, transparent 2px) 30px 0,
+    repeating-linear-gradient(
+      to bottom,
+      #f8fbff 0px,
+      #f8fbff 28px,
+      #e3edf7 29px
+    );
+
+  border: 1px solid #d6e6f7;
+  line-height: 29px;
+}
+
+#map {
+  margin: 20px;
+  height: 300px;
+  border-radius: 14px;
+}
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+
+  color: white;
+  text-align: center;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=1920');
+
+  background-size: cover;
+  background-position: center;
+}
+
+.home button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.15);
+  color: white;
+  backdrop-filter: blur(6px);
+
+  transition: 0.2s;
+}
+
+.home button:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.05);
+}
+.top-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.plan-info {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  padding: 8px 14px;
+  border-radius: 12px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.plan-info button {
+  margin-left: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.exit-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  border: none;
+  cursor: pointer;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  background: rgba(255, 80, 80, 0.8);
+  color: white;
+  font-size: 16px;
+
+  transition: 0.2s;
+}
+
+.exit-btn:hover {
+  background: rgba(255, 50, 50, 1);
+  transform: scale(1.1);
+}
+.ai-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.ai-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.ai-box button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #6c63ff, #8f7cff);
+  color: white;
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.ai-box button:hover {
+  transform: scale(1.05);
+}

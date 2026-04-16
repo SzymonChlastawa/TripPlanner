@@ -19,20 +19,22 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Instalacja zależności (trip-service)
+    - name: Instalacja zależności
       working-directory: ./trip-service
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        # Instalujemy pytest i httpx bezpośrednio, aby uniknąć błędów w razie braków w requirements.txt
+        pip install pytest pytest-cov httpx flake8 fastapi uvicorn pydantic
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Testy statyczne (Linting Flake8)
+    - name: Testy statyczne (Linting)
       working-directory: ./trip-service
       run: |
-        # flake8 sprawdzi błędy, ale nie przerwie buildu, jeśli coś znajdzie
+        # flake8 sprawdzi błędy, ale opcja --exit-zero sprawi, że pipeline nie przerwie pracy przez błędy stylu
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Testy automatyczne z Raportem Pokrycia (Coverage)
+    - name: Testy automatyczne i Coverage
       working-directory: ./trip-service
       run: |
-        # Używamy modułu pytest bezpośrednio
-        python -m pytest test_main.py --cov=. --cov-report=term-missing
+        # Kropka na końcu sprawia, że pytest sam znajdzie plik testów, niezależnie czy nazywa się test_main.py czy Test_main.py
+        python -m pytest . --cov=. --cov-report=term-missing

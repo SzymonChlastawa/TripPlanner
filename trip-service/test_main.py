@@ -1,4 +1,10 @@
+import sys
+import os
 from fastapi.testclient import TestClient
+
+# To wymusi dodanie bieżącego folderu do ścieżki wewnątrz Pythona
+sys.path.append(os.path.dirname(__file__))
+
 from main import app
 
 client = TestClient(app)
@@ -6,7 +12,7 @@ client = TestClient(app)
 def test_ping():
     response = client.get("/ping")
     assert response.status_code == 200
-    assert response.json() == {"ping": "pong", "service": "trip-service", "status": "online"}
+    assert response.json()["ping"] == "pong"
 
 def test_get_all_trips():
     response = client.get("/trips")

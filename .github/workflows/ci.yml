@@ -36,6 +36,4 @@ jobs:
     - name: Testy automatyczne i Coverage
       working-directory: ./trip-service
       run: |
-        # Dodajemy kropkę do PYTHONPATH, żeby pytest widział plik main.py
-        export PYTHONPATH=$PYTHONPATH:.
         python -m pytest . --cov=. --cov-report=term-missing

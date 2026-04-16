@@ -18,8 +18,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-        cache: 'pip' # PUNKTY DODATKOWE: Cache zależności
-        cache-dependency-path: 'trip-service/requirements.txt'
 
     - name: Instalacja zależności (trip-service)
       working-directory: ./trip-service
@@ -30,15 +28,8 @@ jobs:
     - name: Testy statyczne (Linting Flake8)
       working-directory: ./trip-service
       run: |
-        # Zatrzymuje build na błędach składni
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # Ostrzeżenia (nie blokuje buildu)
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-    - name: PUNKTY DODATKOWE - Skanowanie bezpieczeństwa (pip-audit)
-      working-directory: ./trip-service
-      run: |
-        pip-audit || echo "Znaleziono podatności, ale kontynuujemy budowanie."
 
     - name: Testy automatyczne z Raportem Pokrycia (Coverage)
       working-directory: ./trip-service

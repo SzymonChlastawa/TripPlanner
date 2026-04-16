@@ -175,12 +175,3 @@ function copyCode(){
 function leavePlan(){
   window.location.href = "index.html";
 }
- <div class="card">
-  <h3>📝 Lista rzeczy</h3>
-  <ul id="todoList"></ul>
-  <div style="display: flex; gap: 5px;">
-    <input id="todoInput" placeholder="Nowe zadanie...">
-    <button onclick="addTodo()">Dodaj</button>
-  </div>
-  <button onclick="generateAIList()" style="margin-top: 10px; background-color: #ff6b6b;">✨ Generuj z AI</button>
-</div>

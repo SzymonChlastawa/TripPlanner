@@ -2,7 +2,7 @@ import sys
 import os
 from fastapi.testclient import TestClient
 
-# To wymusi dodanie bieżącego folderu do ścieżki wewnątrz Pythona
+# To rozwiązuje błąd "No module named main" na GitHubie
 sys.path.append(os.path.dirname(__file__))
 
 from main import app

@@ -41,3 +41,10 @@ async def generate_todos(info: TripInfo):
         items = ["Nie udało się wygenerować listy. Spróbuj ponownie."]
 
     return {"items": items}
+    @app.get("/ping")
+def ping():
+    return {"ping": "pong"}
+
+@app.get("/trips")
+def get_trips():
+    return {"trips": []}

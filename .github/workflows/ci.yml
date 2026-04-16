@@ -24,7 +24,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         # Instalujemy pytest i httpx bezpośrednio, aby uniknąć błędów w razie braków w requirements.txt
-        pip install pytest pytest-cov httpx flake8 fastapi uvicorn pydantic
+        pip install pytest pytest-cov httpx flake8 fastapi uvicorn pydantic openai
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Testy statyczne (Linting)
